@@ -49,6 +49,8 @@
             font-size: 14px;
             text-decoration: underline;
             cursor: pointer;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
         }
 
         @keyframes fadeIn {
@@ -102,10 +104,14 @@
 
         document.addEventListener("DOMContentLoaded", function () {
             const buttons = document.querySelectorAll(".youtube-button, .discord-button");
+            const wallOfShame = document.querySelector(".wall-of-shame");
 
             buttons.forEach(function (button) {
                 button.style.display = "flex";
             });
+
+            wallOfShame.style.animationDelay = "1s";
+            wallOfShame.style.display = "block";
         });
     </script>
 </body>

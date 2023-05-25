@@ -13,22 +13,42 @@
             font-family: Verdana, sans-serif;
         }
 
-        .back-button {
-            position: absolute;
-            top: 10px;
-            left: 10px;
+        .redirect-button {
+            background-color: #808080;
             color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+            .redirect-button .bug-emoji {
+                margin-right: 5px;
+            }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
-    <a class="back-button" href="https://mcpengu.xyz">
-        &larr;
+    <a class="redirect-button" href="https://mcpengu.xyz/shame/frel0">
+        <span class="bug-emoji">&#128027;</span>
+        frel0
     </a>
-
-    <img src="https://cdn.discordapp.com/attachments/1016079746863472701/1111289529433862255/download.jpg" alt="Image" />
 </body>
 </html>
