@@ -3,19 +3,22 @@
 <head>
     <style>
         body {
-            background-color: #333333;
-            /* Dark gray background color */
+            background-image: url("https://cutewallpaper.org/26/best-looping-gifs-wallpaper/retrowave-gifs-get-the-best-gif-on-giphy.gif");
+            background-repeat: no-repeat;
+            background-size: cover;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            flex-direction: column;
             font-family: Verdana, sans-serif;
-            position: relative;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .back-button {
-            position: absolute;
+            position: fixed;
             top: 10px;
             left: -100px;
             background-color: #808080;
@@ -28,7 +31,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: slideIn 1s ease-in-out forwards;
+            animation: slideInLeft 1s ease-in-out forwards;
         }
 
             .back-button .arrow {
@@ -39,7 +42,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 20px;
+            margin-top: 40px;
         }
 
         .redirect-button {
@@ -50,25 +53,18 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 16px;
+            margin-right: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 10px;
-            animation: fadeIn 1s ease-in-out forwards;
+            flex: 1; /* Added flex property */
         }
 
             .redirect-button .emoji {
                 margin-right: 5px;
-                font-size: 20px;
-                width: 24px;
-                height: 24px;
             }
 
-        .datae-button {
-            padding: 10px 16px;
-        }
-
-        @keyframes slideIn {
+        @keyframes slideInLeft {
             0% {
                 left: -100px;
                 opacity: 0;
@@ -80,18 +76,23 @@
             }
         }
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
+        @media only screen and (min-width: 768px) {
+            body {
+                flex-direction: row;
             }
 
-            100% {
-                opacity: 1;
-                transform: translateY(0);
+            .article {
+                margin-bottom: 0;
+                width: 33.33%;
+                padding: 0 20px;
+            }
+
+            .article-image {
+                margin-bottom: 10px;
             }
         }
     </style>
+
     <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="path/to/favicon.ico" type="image/x-icon">
 
@@ -108,7 +109,7 @@
             frel0
         </a>
 
-        <a class="redirect-button datae-button" href="https://beatrun.ru/images/">
+        <a class="redirect-button" href="https://beatrun.ru/images/">
             <img class="emoji" src="https://cdn.discordapp.com/emojis/1073457403795877918.webp?size=48&name=CRY&quality=lossless" alt="Emoji">
             datae
         </a>
