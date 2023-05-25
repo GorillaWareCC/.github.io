@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #333333;
+            /* Dark gray background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            font-family: Verdana, sans-serif;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 10px;
+            left: -100px;
+            background-color: #808080;
+            color: #ffffff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: slideInLeft 1s ease-in-out forwards;
+        }
+
+            .back-button .arrow {
+                margin-right: 5px;
+            }
+
+        .image-container {
+            max-width: 150%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+            .image-container img {
+                max-width: 100%;
+                height: auto;
+            }
+
+        @keyframes slideInLeft {
+            0% {
+                left: -100px;
+                opacity: 0;
+            }
+
+            100% {
+                left: 10px;
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a class="back-button" href="https://mcpengu.xyz/shame/">
+        <span class="arrow">&#8592;</span>
+        Back
+    </a>
+
+    <div class="image-container">
+        <img src="https://cdn.discordapp.com/attachments/1057269908548886538/1111311901322924042/image.png" alt="screenshot 1">
+        <img src="https://cdn.discordapp.com/attachments/1057269908548886538/1073946988141346876/unknown.png" alt="screenshot 2">
+        <img src="https://cdn.discordapp.com/attachments/1057269908548886538/1073946988367843358/unknown2_2.png" alt="screenshot 3">
+        <img src="https://cdn.discordapp.com/attachments/1057269908548886538/1063528018775122001/unknown.png" alt="screenshot 4">
+        <img src="https://cdn.discordapp.com/attachments/1057269908548886538/1063529379159875615/image.png" alt="screenshot 5">
+        <img src="https://cdn.discordapp.com/attachments/1057269908548886538/1063529379541569556/image.png" alt="screenshot 6">
+        <img src="https://cdn.discordapp.com/attachments/1057269908548886538/1063529379973578883/image.png" alt="screenshot 7">
+        <img src="https://cdn.discordapp.com/attachments/1057269908548886538/1063529380430762145/image.png" alt="screenshot 8">
+        <img src="https://cdn.discordapp.com/attachments/1057269908548886538/1063529380770496664/image.png" alt="screenshot 9">
+        <img src="https://cdn.discordapp.com/attachments/1057269908548886538/1057290558785204244/image.png" alt="screenshot 10">
+        <img src="https://cdn.discordapp.com/attachments/1057269908548886538/1057286650138476644/image.png" alt="screenshot 11">
+    </div>
+</body>
+</html>
