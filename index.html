@@ -1,9 +1,97 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Test Website</title>
+    <style>
+        body {
+            background-color: #333333;
+            /* Dark gray background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            font-family: Verdana, sans-serif;
+        }
+
+        .youtube-button,
+        .discord-button {
+            display: none;
+            background-color: #808080;
+            /* Dark gray background color for the buttons */
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+            .youtube-button img,
+            .discord-button img {
+                height: 24px;
+                margin-right: 10px;
+            }
+
+        .copied-text {
+            color: #ffffff;
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Test</h1>
+    <a class="youtube-button" href="https://www.youtube.com/channel/UCqWFiQnK-mK-N9nvWH69t6w">
+        <img src="https://www.iconpacks.net/icons/2/free-youtube-logo-icon-2431-thumb.png" alt="YouTube Icon">
+        <span>Visit YouTube Channel</span>
+    </a>
+
+    <button class="discord-button" onclick="copyToClipboard('MCPEngu#3737')">
+        <img src="https://www.svgrepo.com/show/353655/discord-icon.svg" alt="Discord Icon">
+        <span>Discord</span>
+    </button>
+
+    <p class="copied-text" id="copiedText">Copied to clipboard</p>
+
+    <script>
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            const copiedText = document.getElementById('copiedText');
+            copiedText.style.display = 'block';
+
+            setTimeout(function () {
+                copiedText.style.display = 'none';
+            }, 2000);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const buttons = document.querySelectorAll(".youtube-button, .discord-button");
+
+            buttons.forEach(function (button) {
+                button.style.display = "flex";
+            });
+        });
+    </script>
 </body>
 </html>
