@@ -11,6 +11,35 @@
             height: 100vh;
             flex-direction: column;
             font-family: Verdana, sans-serif;
+            position: relative;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: -100px;
+            background-color: #808080;
+            color: #ffffff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: slideIn 1s ease-in-out forwards;
+        }
+
+            .back-button .arrow {
+                margin-right: 5px;
+            }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
         }
 
         .redirect-button {
@@ -24,13 +53,27 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 20px;
+            margin-right: 10px;
             animation: fadeIn 1s ease-in-out forwards;
         }
 
-            .redirect-button .bug-emoji {
+            .redirect-button .emoji {
                 margin-right: 5px;
+                width: 24px;
+                height: 24px;
             }
+
+        @keyframes slideIn {
+            0% {
+                left: -100px;
+                opacity: 0;
+            }
+
+            100% {
+                left: 10px;
+                opacity: 1;
+            }
+        }
 
         @keyframes fadeIn {
             0% {
@@ -46,9 +89,21 @@
     </style>
 </head>
 <body>
-    <a class="redirect-button" href="https://mcpengu.xyz/shame/frel0">
-        <span class="bug-emoji">&#128027;</span>
-        frel0
+    <a class="back-button" href="https://mcpengu.xyz">
+        <span class="arrow">&#8592;</span>
+        Back
     </a>
+
+    <div class="button-container">
+        <a class="redirect-button" href="https://mcpengu.xyz/shame/frel0">
+            <span class="emoji">&#128027;</span>
+            frel0
+        </a>
+
+        <a class="redirect-button" href="https://jeffthekillerz.github.io/images/">
+            <img class="emoji" src="https://cdn.discordapp.com/emojis/1073457403795877918.webp?size=48&name=CRY&quality=lossless" alt="Emoji">
+            datae
+        </a>
+    </div>
 </body>
 </html>
