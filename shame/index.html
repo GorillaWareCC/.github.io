@@ -7,7 +7,6 @@
             background-repeat: no-repeat;
             background-size: cover;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -21,9 +20,10 @@
             position: fixed;
             top: 10px;
             left: -100px;
-            background-color: #808080;
+            background-color: rgba(128, 128, 128, 0);
             color: #ffffff;
             padding: 5px 10px;
+            border: 2px solid #ffffff;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
@@ -38,27 +38,22 @@
                 margin-right: 5px;
             }
 
-        .button-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 40px;
-        }
-
         .redirect-button {
-            background-color: #808080;
+            background-color: rgba(128, 128, 128, 0); /* Change the alpha value to 0 for full transparency */
             color: #ffffff;
             padding: 10px 20px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
             font-size: 16px;
-            margin-right: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex: 1; /* Added flex property */
+            flex: 1;
+            border: 2px solid #ffffff;
+            margin: 0 5px; /* Adjust the margin value as per your preference */
         }
+
 
             .redirect-button .emoji {
                 margin-right: 5px;
@@ -90,6 +85,10 @@
             .article-image {
                 margin-bottom: 10px;
             }
+        }
+
+        .button-container {
+            display: flex;
         }
     </style>
 
