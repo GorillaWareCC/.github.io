@@ -42,6 +42,15 @@
             display: none;
         }
 
+        .wall-of-shame {
+            margin-top: 20px;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 14px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
         @keyframes fadeIn {
             0% {
                 opacity: 0;
@@ -68,6 +77,8 @@
 
     <p class="copied-text" id="copiedText">Copied to clipboard</p>
 
+    <p class="wall-of-shame" onclick="goToWallOfShame()">Wall of Shame</p>
+
     <script>
         function copyToClipboard(text) {
             const textarea = document.createElement('textarea');
@@ -83,6 +94,10 @@
             setTimeout(function () {
                 copiedText.style.display = 'none';
             }, 2000);
+        }
+
+        function goToWallOfShame() {
+            window.location.href = 'https://mcpengu.xyz/shame';
         }
 
         document.addEventListener("DOMContentLoaded", function () {
