@@ -14,7 +14,8 @@
         }
 
         .youtube-button,
-        .discord-button {
+        .discord-button,
+        .steam-button {
             display: none;
             background-color: #808080;
             /* Dark gray background color for the buttons */
@@ -32,7 +33,8 @@
         }
 
             .youtube-button img,
-            .discord-button img {
+            .discord-button img,
+            .steam-button img {
                 height: 24px;
                 margin-right: 10px;
             }
@@ -77,6 +79,11 @@
         <span>Discord</span>
     </button>
 
+    <button class="steam-button" onclick="redirectToSteam('https://steamcommunity.com/id/DirectX8/')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/768px-Steam_icon_logo.svg.png" alt="Steam Icon">
+        <span>Steam</span>
+    </button>
+
     <p class="copied-text" id="copiedText">Copied to clipboard</p>
 
     <p class="wall-of-shame" onclick="goToWallOfShame()">Wall of Shame</p>
@@ -102,8 +109,12 @@
             window.location.href = 'https://mcpengu.xyz/shame';
         }
 
+        function redirectToSteam(url) {
+            window.location.href = url;
+        }
+
         document.addEventListener("DOMContentLoaded", function () {
-            const buttons = document.querySelectorAll(".youtube-button, .discord-button");
+            const buttons = document.querySelectorAll(".youtube-button, .discord-button, .steam-button");
             const wallOfShame = document.querySelector(".wall-of-shame");
 
             buttons.forEach(function (button) {
