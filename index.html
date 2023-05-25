@@ -15,7 +15,8 @@
 
         .youtube-button,
         .discord-button,
-        .steam-button {
+        .steam-button,
+        .about-button {
             display: none;
             background-color: #808080;
             /* Dark gray background color for the buttons */
@@ -39,9 +40,11 @@
                 margin-right: 10px;
             }
 
-        .copied-text {
+        .copied-text,
+        .new-text {
             color: #ffffff;
             display: none;
+            animation: fadeIn 1s ease-in-out forwards;
         }
 
         .wall-of-shame {
@@ -52,6 +55,13 @@
             text-decoration: underline;
             cursor: pointer;
             opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        .about-text {
+            color: #ffffff;
+            font-size: 32px;
+            margin-bottom: 20px;
             animation: fadeIn 1s ease-in-out forwards;
         }
 
@@ -66,15 +76,39 @@
                 transform: translateY(0);
             }
         }
+
+        @keyframes moveUp {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-40px);
+            }
+        }
+
+        @keyframes moveDown {
+            0% {
+                transform: translateY(-40px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
+    <h1 class="about-text" id="aboutText">MCPEngu</h1>
+
+    <button class="about-button" onclick="redirectToAbout()">About me</button>
+
     <a class="youtube-button" href="https://www.youtube.com/channel/UCqWFiQnK-mK-N9nvWH69t6w">
         <img src="https://www.iconpacks.net/icons/2/free-youtube-logo-icon-2431-thumb.png" alt="YouTube Icon">
         <span>Visit YouTube Channel</span>
     </a>
 
-    <button class="discord-button" onclick="copyToClipboard('MCPEngu#3737')">
+    <button class="discord-button" onclick="copyToClipboard('MCPEngu#3737'); animateButtons()">
         <img src="https://www.svgrepo.com/show/353655/discord-icon.svg" alt="Discord Icon">
         <span>Discord</span>
     </button>
@@ -109,13 +143,53 @@
             window.location.href = 'https://mcpengu.xyz/shame';
         }
 
-        function redirectToSteam(url) {
-            window.location.href = url;
+        function redirectToAbout() {
+            window.location.href = 'https://mcpengu.xyz/about';
+        }
+
+        function animateButtons() {
+            const buttons = document.querySelectorAll(".youtube-button, .discord-button, .steam-button");
+            buttons.forEach(function (button) {
+                button.style.animationName = "moveUp";
+                button.style.animationDuration = "1s";
+                button.style.animationFillMode = "forwards";
+            });
+
+            const copiedText = document.getElementById('copiedText');
+            copiedText.style.animationDelay = "1s";
+            copiedText.style.animationName = "fadeIn";
+            copiedText.style.animationDuration = "1s";
+            copiedText.style.animationFillMode = "forwards";
+
+            setTimeout(function () {
+                buttons.forEach(function (button) {
+                    button.style.animationName = "moveDown";
+                    button.style.animationDuration = "1s";
+                    button.style.animationFillMode = "forwards";
+                });
+
+                copiedText.style.animationName = "fadeOut";
+                copiedText.style.animationDuration = "1s";
+                copiedText.style.animationFillMode = "forwards";
+
+            }, 2000);
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-            const buttons = document.querySelectorAll(".youtube-button, .discord-button, .steam-button");
+            const buttons = document.querySelectorAll(".youtube-button, .discord-button, .steam-button, .about-button");
             const wallOfShame = document.querySelector(".wall-of-shame");
+            const mcpeText = document.querySelector(".about-text");
+            const aboutButton = document.querySelector(".about-button");
+
+            mcpeText.style.display = 'block';
+            mcpeText.style.animationName = 'fadeIn';
+            mcpeText.style.animationDuration = '1s';
+            mcpeText.style.animationFillMode = 'forwards';
+
+            aboutButton.style.display = 'block';
+            aboutButton.style.animationName = 'fadeIn';
+            aboutButton.style.animationDuration = '1s';
+            aboutButton.style.animationFillMode = 'forwards';
 
             buttons.forEach(function (button) {
                 button.style.display = "flex";
