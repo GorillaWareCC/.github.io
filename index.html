@@ -146,58 +146,6 @@
         function redirectToAbout() {
             window.location.href = 'https://mcpengu.xyz/about';
         }
-
-        function animateButtons() {
-            const buttons = document.querySelectorAll(".youtube-button, .discord-button, .steam-button");
-            buttons.forEach(function (button) {
-                button.style.animationName = "moveUp";
-                button.style.animationDuration = "1s";
-                button.style.animationFillMode = "forwards";
-            });
-
-            const copiedText = document.getElementById('copiedText');
-            copiedText.style.animationDelay = "1s";
-            copiedText.style.animationName = "fadeIn";
-            copiedText.style.animationDuration = "1s";
-            copiedText.style.animationFillMode = "forwards";
-
-            setTimeout(function () {
-                buttons.forEach(function (button) {
-                    button.style.animationName = "moveDown";
-                    button.style.animationDuration = "1s";
-                    button.style.animationFillMode = "forwards";
-                });
-
-                copiedText.style.animationName = "fadeOut";
-                copiedText.style.animationDuration = "1s";
-                copiedText.style.animationFillMode = "forwards";
-
-            }, 2000);
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const buttons = document.querySelectorAll(".youtube-button, .discord-button, .steam-button, .about-button");
-            const wallOfShame = document.querySelector(".wall-of-shame");
-            const mcpeText = document.querySelector(".about-text");
-            const aboutButton = document.querySelector(".about-button");
-
-            mcpeText.style.display = 'block';
-            mcpeText.style.animationName = 'fadeIn';
-            mcpeText.style.animationDuration = '1s';
-            mcpeText.style.animationFillMode = 'forwards';
-
-            aboutButton.style.display = 'block';
-            aboutButton.style.animationName = 'fadeIn';
-            aboutButton.style.animationDuration = '1s';
-            aboutButton.style.animationFillMode = 'forwards';
-
-            buttons.forEach(function (button) {
-                button.style.display = "flex";
-            });
-
-            wallOfShame.style.animationDelay = "1s";
-            wallOfShame.style.display = "block";
-        });
     </script>
 </body>
 </html>
