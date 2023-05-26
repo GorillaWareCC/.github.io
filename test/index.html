@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slick and Modern Website</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        .header {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+        }
+
+            .header h1 {
+                font-size: 36px;
+                margin: 0;
+                animation: welcome-animation 5s infinite;
+            }
+
+        @keyframes welcome-animation {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            50% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start; /* Snap to the start of each section */
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .social-media-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .social-media-button {
+            background-color: #007bff;
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .social-media-button:hover {
+                background-color: #0056b3;
+            }
+
+        /* Additional styles for active sections */
+        .section.active {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to MCPEngu's Website</h1>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <h2>Welcome to MCPEngu's Website</h2>
+            <p>This website is created by MCPEngu and is filled with various content and projects related to MCPEngu.</p>
+            <p>Here's what you can find on the website:</p>
+            <ul>
+                <li><strong>Hall of Shame:</strong> Explore the "Hall of Shame" section, where MCPEngu highlights various individuals.</li>
+                <li><strong>About Me:</strong> Learn more about MCPEngu and their journey.</li>
+                <li><strong>Social Media:</strong> Connect with MCPEngu on social media platforms.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <h2>Who am I?</h2>
+            <p>My name is MCPEngu, I cheat in 15 year old games which haven't had a major update in multiple years. You might be wondering, why would I do that? Well, mainly just to piss people off, but also to do #ownage.</p>
+            <p>I don't only cheat in very old and senile games, I also cheat in Left 4 Dead 2 and DOD:S as there are many boomers who take those games way too fucking serious and its always fun to make fun and spawn kill them.</p>
+            <p>However, I don't only cheat, I also make videos on YouTube! Making videos is a fun hobby which improves my skills in editing but is also just fun to do. However due to exams, the videos have slowed down quite a lot but they will return at some point.</p>
+        </div>
+        <video src="<iframe width="560" height="315" src="https://www.youtube.com/embed/xfg_0zE-yCQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>" autoplay loop muted></video>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <h2>Social Media</h2>
+            <p>Connect with MCPEngu on social media platforms:</p>
+            <div class="social-media-container">
+                <a href="https://www.twitter.com/YOUR_TWITTER_PROFILE" target="_blank">
+                    <button class="social-media-button">Twitter</button>
+                </a>
+                <a href="https://www.instagram.com/YOUR_INSTAGRAM_PROFILE" target="_blank">
+                    <button class="social-media-button">Instagram</button>
+                </a>
+                <a href="https://www.youtube.com/YOUR_YOUTUBE_CHANNEL" target="_blank">
+                    <button class="social-media-button">YouTube</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to handle scroll event
+        function handleScroll() {
+            var sections = document.querySelectorAll('.section');
+            sections.forEach(function (section) {
+                if (isElementInViewport(section)) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+        }
+
+        // Attach scroll event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Function to check if an element is in the viewport
+        function isElementInViewport(element) {
+            var rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+    </script>
+</body>
+</html>
