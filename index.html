@@ -6,7 +6,6 @@
     <title>MCPEngu's Website'</title>
     <style>
         /* CSS styles for the website */
-
         body {
             background-color: #222;
             color: #fff;
@@ -124,6 +123,13 @@
                 z-index: -1;
             }
     </style>
+    <script>
+        // JavaScript code for mobile detection and redirection
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (isMobile) {
+            window.location.href = "https://MCPEngu.xyz/mobile";
+        }
+    </script>
 </head>
 <body>
     <div class="header">
@@ -217,6 +223,10 @@
                 default:
                     break;
             }
+        }
+        // Mobile detection and redirection
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            window.location.href = "mobile.html";
         }
     </script>
 </body>
