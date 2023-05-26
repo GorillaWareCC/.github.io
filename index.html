@@ -68,6 +68,35 @@
             animation: fadeIn 1s ease-in-out forwards;
         }
 
+        .music-toggle-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: rgba(128, 128, 128, 0); /* Transparent background color */
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #ffffff;
+            cursor: pointer;
+            z-index: 9999;
+            transition: background-color 0.3s;
+        }
+
+            .music-toggle-button:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .music-toggle-button img {
+                width: 20px;
+                height: 20px;
+            }
+
         @keyframes fadeIn {
             0% {
                 opacity: 0;
@@ -105,6 +134,21 @@
     <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
 
     <script>
+        var audio = new Audio('KOKS.mp3');
+        var isMusicPlaying = false;
+
+        function toggleMusic() {
+            if (isMusicPlaying) {
+                audio.pause();
+                isMusicPlaying = false;
+                document.getElementById('musicIcon').src = 'pause-icon.png';
+            } else {
+                audio.play();
+                isMusicPlaying = true;
+                document.getElementById('musicIcon').src = 'play-icon.png';
+            }
+        }
+
         function openDiscordServer() {
             window.open("https://discord.gg/Mk43bdDQxM", "_blank");
         }
@@ -133,6 +177,10 @@
     <p class="copied-text" id="copiedText">Copied to clipboard</p>
 
     <p class="wall-of-shame" onclick="goToWallOfShame()">Wall of Shame</p>
+
+    <button class="music-toggle-button" onclick="toggleMusic()">
+        <img id="musicIcon" src="pause-icon.png" alt="Pause Icon">
+    </button>
 
     <script>
         function copyToClipboard(text) {
