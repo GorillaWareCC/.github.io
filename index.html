@@ -1,210 +1,222 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slick and Modern Website</title>
     <style>
+        /* CSS styles for the website */
+
         body {
-            background-image: url("https://cutewallpaper.org/26/best-looping-gifs-wallpaper/retrowave-gifs-get-the-best-gif-on-giphy.gif");
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
-            /* Dark gray background color */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            font-family: Verdana, sans-serif;
+            background-color: #222;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
-        .youtube-button,
-        .discord-button,
-        .steam-button,
-        .about-button {
-            display: none;
-            background-color: rgba(128, 128, 128, 0); /* Transparent background color */
-            color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            border: 2px solid #ffffff; /* Add a border to the buttons */
-            animation: fadeIn 1s ease-in-out forwards;
+        .header {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
         }
 
-            .youtube-button img,
-            .discord-button img,
-            .steam-button img {
-                height: 24px;
-                margin-right: 10px;
+            .header h1 {
+                font-size: 36px;
+                margin: 0;
+                animation: welcome-animation 5s infinite;
             }
 
-        .copied-text,
-        .new-text {
-            color: #ffffff;
-            display: none;
-            animation: fadeIn 1s ease-in-out forwards;
+        @keyframes welcome-animation {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            50% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
         }
 
-        .wall-of-shame {
-            margin-top: 20px;
-            color: #ffffff;
-            font-weight: bold;
-            font-size: 14px;
-            text-decoration: underline;
-            cursor: pointer;
-            opacity: 0;
-            animation: fadeIn 1s ease-in-out forwards;
-        }
-
-        .about-text {
-            color: #ffffff;
-            font-size: 32px;
-            margin-bottom: 20px;
-            animation: fadeIn 1s ease-in-out forwards;
-        }
-
-        .music-toggle-button {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: rgba(128, 128, 128, 0); /* Transparent background color */
-            color: #ffffff;
-            padding: 10px;
-            border-radius: 50%;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
+        .section {
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px solid #ffffff;
+            scroll-snap-align: start; /* Snap to the start of each section */
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .social-media-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .social-media-button {
+            background-color: #007bff;
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 4px;
             cursor: pointer;
-            z-index: 9999;
             transition: background-color 0.3s;
         }
 
-            .music-toggle-button:hover {
-                background-color: rgba(255, 255, 255, 0.1);
+            .social-media-button:hover {
+                background-color: #0056b3;
             }
 
-            .music-toggle-button img {
-                width: 20px;
-                height: 20px;
-            }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Additional styles for active sections */
+        .section.active {
+            background-color: #444;
         }
 
-        @keyframes moveUp {
-            0% {
-                transform: translateY(0);
-            }
-
-            100% {
-                transform: translateY(-40px);
-            }
+        /* Custom style for the social media section background */
+        .social-media-section {
+            position: relative;
+            overflow: hidden;
         }
 
-        @keyframes moveDown {
-            0% {
-                transform: translateY(-40px);
+            .social-media-section::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url("image1.png");
+                background-size: cover;
+                background-position: center;
+                filter: blur(10px);
+                -webkit-filter: blur(10px);
+                z-index: -1;
             }
-
-            100% {
-                transform: translateY(0);
-            }
-        }
     </style>
-
-    <link rel="icon" href="icon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
-
-    <script>
-        var audio = new Audio('KOKS.mp3');
-        var isMusicPlaying = false;
-
-        function toggleMusic() {
-            if (isMusicPlaying) {
-                audio.pause();
-                isMusicPlaying = false;
-                document.getElementById('musicIcon').src = 'pause-icon.png';
-            } else {
-                audio.play();
-                isMusicPlaying = true;
-                document.getElementById('musicIcon').src = 'play-icon.png';
-            }
-        }
-
-        function openDiscordServer() {
-            window.open("https://discord.gg/Mk43bdDQxM", "_blank");
-        }
-    </script>
 </head>
 <body>
-    <h1 class="about-text" id="aboutText">MCPEngu</h1>
+    <div class="header">
+        <h1>𝐘𝐨𝐮 𝐭𝐡𝐨𝐮𝐠𝐡𝐭 𝐲𝐨𝐮 𝐰𝐞𝐫𝐞 𝐠𝐫𝐞𝐚𝐭𝐧𝐞𝐬𝐬? 𝐆𝐢𝐯𝐞 𝐫𝐞𝐭𝐡𝐨𝐮𝐠𝐡𝐭.♕</h1>
+    </div>
 
-    <button class="about-button" onclick="redirectToAbout()">About me</button>
+    <div class="section">
+        <div class="container">
+            <h2>Welcome to My Website</h2>
+            <p>This website is created by yours truly, MCPEngu, and is filled with various content related to me.</p>
+            <p>Here's what you can find on the website:</p>
+            <ul>
+                <li><strong>Hall of Shame:</strong> Explore the "Hall of Shame" section, where I highlight various individuals who have done degenerate or just plain out stupid things.</li>
+                <li><strong>About Me:</strong> Learn more about who I am and why I cheat in games.</li>
+                <li><strong>Social Media:</strong> Connect with me on social media platforms.</li>
+            </ul>
+        </div>
+    </div>
 
-    <a class="youtube-button" href="https://www.youtube.com/channel/UCqWFiQnK-mK-N9nvWH69t6w">
-        <img src="https://www.iconpacks.net/icons/2/free-youtube-logo-icon-2431-thumb.png" alt="YouTube Icon">
-        <span>Visit YouTube Channel</span>
-    </a>
+    <div class="section">
+        <div class="container">
+            <h2>Who am I?</h2>
+            <p>My name is MCPEngu, I cheat in 15-year-old games which haven't had a major update in multiple years. You might be wondering, why would I do that? Well, mainly just to piss people off, but also to do #ownage.</p>
+            <p>I don't only cheat in very old and senile games, I also cheat in Left 4 Dead 2 and DOD:S as there are many boomers who take those games way too seriously, and it's always fun to make fun and spawn kill them.</p>
+            <p>However, I don't only cheat; I also make videos on YouTube! Making videos is a fun hobby that improves my skills in editing but is also just fun to do. However, due to exams, the videos have slowed down quite a lot, but they will return at some point.</p>
+        </div>
+        <video src="https://i.imgur.com/zjAedac.mp4" autoplay loop muted></video>
+    </div>
 
-    <button class="discord-button" onclick="openDiscordServer()">
-        <img src="https://www.svgrepo.com/show/353655/discord-icon.svg" alt="Discord Icon">
-        <span>Discord Server</span>
-    </button>
+    <div class="section hall-of-shame-section">
+        <div class="container">
+            <h2>Hall of Shame</h2>
+            <p>Check out the individuals who have made it to the "Hall of Shame" for their degenerate or stupid actions:</p>
+            <div>
+                <button class="social-media-button" onclick="openHallOfShame('frel0')">frel0</button>
+                <button class="social-media-button" onclick="openHallOfShame('fourteen')">fourteen</button>
+                <button class="social-media-button" onclick="openHallOfShame('datae')">datae</button>
+            </div>
+        </div>
+    </div>
 
-    <a class="steam-button" href="https://steamcommunity.com/id/DirectX8/">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/768px-Steam_icon_logo.svg.png" alt="Steam Icon">
-        <span>Steam</span>
-    </a>
+    <style>
+        /* Additional styles for the "Hall of Shame" section background */
+        .hall-of-shame-section {
+            position: relative;
+            overflow: hidden;
+        }
 
-    <p class="copied-text" id="copiedText">Copied to clipboard</p>
+            .hall-of-shame-section::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url("image2.png");
+                background-size: cover;
+                background-position: center;
+                filter: blur(10px);
+                -webkit-filter: blur(10px);
+                z-index: -1;
+            }
+    </style>
 
-    <p class="wall-of-shame" onclick="goToWallOfShame()">Wall of Shame</p>
 
-    <button class="music-toggle-button" onclick="toggleMusic()">
-        <img id="musicIcon" src="pause-icon.png" alt="Pause Icon">
-    </button>
+    <div class="section social-media-section">
+        <div class="container">
+            <h2>Social Media</h2>
+            <p>Connect with me on various social media platforms:</p>
+            <div class="social-media-container">
+                <a href="https://www.youtube.com/channel/UCqWFiQnK-mK-N9nvWH69t6w" target="_blank" class="social-media-button">YouTube</a>
+                <a href="https://discord.gg/Mk43bdDQxM" target="_blank" class="social-media-button">Discord</a>
+                <a href="https://steamcommunity.com/id/DirectX8/" target="_blank" class="social-media-button">Steam</a>
+            </div>
+        </div>
+    </div>
 
     <script>
-        function copyToClipboard(text) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-
-            const copiedText = document.getElementById('copiedText');
-            copiedText.style.display = 'block';
-
-            setTimeout(function () {
-                copiedText.style.display = 'none';
-            }, 2000);
-        }
-
-        function goToWallOfShame() {
-            window.location.href = 'https://mcpengu.xyz/shame';
-        }
-
-        function redirectToAbout() {
-            window.location.href = 'https://mcpengu.xyz/about';
+        // JavaScript code for opening different URLs based on button clicks
+        function openHallOfShame(username) {
+            switch (username) {
+                case "frel0":
+                    window.open("https://MCPEngu.xyz/frel0", "_blank");
+                    break;
+                case "fourteen":
+                    window.open("https://MCPEngu.xyz/fourteen", "_blank");
+                    break;
+                case "datae":
+                    window.open("https://beatrun.ru/images", "_blank");
+                    break;
+                default:
+                    break;
+            }
         }
     </script>
 </body>
