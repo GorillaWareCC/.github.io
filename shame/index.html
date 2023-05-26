@@ -54,7 +54,6 @@
             margin: 0 5px; /* Adjust the margin value as per your preference */
         }
 
-
             .redirect-button .emoji {
                 margin-right: 5px;
             }
@@ -90,11 +89,69 @@
         .button-container {
             display: flex;
         }
+
+        .music-toggle-button {
+            position: fixed;
+            bottom: 20px;
+            left: -100px;
+            background-color: rgba(128, 128, 128, 0);
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #ffffff;
+            cursor: pointer;
+            z-index: 9999;
+            transition: background-color 0.3s;
+            animation: slideInLeft 1s ease-in-out forwards;
+        }
+
+            .music-toggle-button img {
+                width: 20px;
+                height: 20px;
+            }
+
+            .music-toggle-button:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+
+            .music-toggle-button:focus {
+                outline: none;
+            }
+
+            .music-toggle-button.playing {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+
+                .music-toggle-button.playing:hover {
+                    background-color: rgba(255, 255, 255, 0.4);
+                }
     </style>
 
     <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="path/to/favicon.ico" type="image/x-icon">
 
+    <script>
+        var audio = new Audio('KOKS.mp3');
+        var isMusicPlaying = false;
+
+        function toggleMusic() {
+            if (isMusicPlaying) {
+                audio.pause();
+                isMusicPlaying = false;
+                document.getElementById('musicIcon').src = 'pause-icon.png';
+            } else {
+                audio.play();
+                isMusicPlaying = true;
+                document.getElementById('musicIcon').src = 'play-icon.png';
+            }
+        }
+    </script>
 </head>
 <body>
     <a class="back-button" href="https://mcpengu.xyz">
@@ -118,5 +175,21 @@
             fourteen
         </a>
     </div>
+
+    <button class="music-toggle-button" onclick="toggleMusic()">
+        <img id="musicIcon" src="pause-icon.png" alt="Pause Icon">
+    </button>
+
+    <script>
+        window.onload = function () {
+            var backButton = document.querySelector('.back-button');
+            var musicToggleButton = document.querySelector('.music-toggle-button');
+
+            setTimeout(function () {
+                backButton.style.left = '10px';
+                musicToggleButton.style.left = '10px';
+            }, 500);
+        };
+    </script>
 </body>
 </html>

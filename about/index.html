@@ -81,6 +81,48 @@
                 margin-bottom: 10px;
             }
         }
+
+        .music-toggle-button {
+            position: fixed;
+            bottom: 20px;
+            left: -100px;
+            background-color: rgba(128, 128, 128, 0);
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #ffffff;
+            cursor: pointer;
+            z-index: 9999;
+            transition: background-color 0.3s;
+            animation: slideInLeft 1s ease-in-out forwards;
+        }
+
+            .music-toggle-button img {
+                width: 20px;
+                height: 20px;
+            }
+
+            .music-toggle-button:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+
+            .music-toggle-button:focus {
+                outline: none;
+            }
+
+            .music-toggle-button.playing {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+
+                .music-toggle-button.playing:hover {
+                    background-color: rgba(255, 255, 255, 0.4);
+                }
     </style>
 </head>
 <body>
@@ -110,5 +152,36 @@
             Throughout his life, MCPEngu's fame and success never overshadowed his philanthropic spirit. He had a heart of gold and believed in giving back to society. His deep empathy for others led him to donate generously to children's hospitals, providing necessary resources for the treatment and care of young patients. Additionally, he actively sought out opportunities to uplift those less fortunate, regularly contributing to organizations that supported the underprivileged.
         </p>
     </div>
+
+    <button class="music-toggle-button" onclick="toggleMusic()">
+        <img id="musicIcon" src="pause-icon.png" alt="Pause Icon">
+    </button>
+
+    <script>
+        var audio = new Audio('KOKS.mp3');
+        var isMusicPlaying = false;
+
+        function toggleMusic() {
+            if (isMusicPlaying) {
+                audio.pause();
+                isMusicPlaying = false;
+                document.getElementById('musicIcon').src = 'pause-icon.png';
+            } else {
+                audio.play();
+                isMusicPlaying = true;
+                document.getElementById('musicIcon').src = 'play-icon.png';
+            }
+        }
+
+        window.onload = function () {
+            var backButton = document.querySelector('.back-button');
+            var musicToggleButton = document.querySelector('.music-toggle-button');
+
+            setTimeout(function () {
+                backButton.style.left = '10px';
+                musicToggleButton.style.left = '10px';
+            }, 500);
+        };
+    </script>
 </body>
 </html>
