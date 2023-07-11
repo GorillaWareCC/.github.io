@@ -2,19 +2,80 @@
 <html>
 <head>
   <title>Work in Progress</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .cat-image {
+      max-width: 500px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      animation: fadeIn 1s;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
   <script>
     function getRandomCat() {
       var catImage = document.getElementById('cat-image');
-      var randomWidth = Math.floor(Math.random() * 400) + 200; // Random width between 200 and 600
-      var randomHeight = Math.floor(Math.random() * 400) + 200; // Random height between 200 and 600
+      var randomWidth = Math.floor(Math.random() * 400) + 200;
+      var randomHeight = Math.floor(Math.random() * 400) + 200; 
       var imageUrl = 'https://placekitten.com/' + randomWidth + '/' + randomHeight;
       catImage.src = imageUrl;
       catImage.alt = 'Random Cat';
+      catImage.classList.remove('fadeIn');
+      void catImage.offsetWidth; 
+      catImage.classList.add('fadeIn');
     }
   </script>
 </head>
 <body onload="getRandomCat()">
-  <h1>Work in Progress</h1>
-  <img id="cat-image" src="" alt="">
+  <div class="container">
+    <h1>Work in Progress</h1>
+    <img id="cat-image" class="cat-image" src="" alt="">
+    <div class="btn-container">
+      <a href="#" class="btn" onclick="getRandomCat()">Get Random Cat</a>
+    </div>
+  </div>
 </body>
 </html>
