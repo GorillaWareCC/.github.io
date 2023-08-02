@@ -1,81 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Work in Progress</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NESSIE Gr00mER!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
 
-    .container {
-      text-align: center;
-    }
+        h1 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    h1 {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
+        .button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin: 10px;
+        }
 
-    .cat-image {
-      max-width: 500px;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      animation: fadeIn 1s;
-    }
+        .button:hover {
+            background-color: #0056b3;
+        }
 
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
+        #videoContainer {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
 
-    .btn-container {
-      display: flex;
-      justify-content: center;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-
-    .btn:hover {
-      background-color: #0056b3;
-    }
-  </style>
-  <script>
-    function getRandomCat() {
-      var catImage = document.getElementById('cat-image');
-      var randomWidth = Math.floor(Math.random() * 400) + 200;
-      var randomHeight = Math.floor(Math.random() * 400) + 200; 
-      var imageUrl = 'https://placekitten.com/' + randomWidth + '/' + randomHeight;
-      catImage.src = imageUrl;
-      catImage.alt = 'Random Cat';
-      catImage.classList.remove('fadeIn');
-      void catImage.offsetWidth; 
-      catImage.classList.add('fadeIn');
-    }
-  </script>
+        video {
+            max-width: 100%;
+            width: 80%; /* Set the video container's width to 80% of its parent */
+        }
+    </style>
 </head>
-<body onload="getRandomCat()">
-  <div class="container">
-    <h1>Work in Progress</h1>
-    <img id="cat-image" class="cat-image" src="" alt="">
-    <div class="btn-container">
-      <a href="#" class="btn" onclick="getRandomCat()">Get Random Cat</a>
+<body>
+    <h1>Stop trying to act tough and stop sending pictures of your sister to people XDDDDDDDDDDDDDD, also stop talking about minors FREAK</h1>
+    <div>
+        <button class="button" onclick="showVideo('copium.mp4')">Nessie getting pwned + copium</button>
+        <button class="button" onclick="showVideo('weirdo.mp4')">Nessie being a ped0</button>
     </div>
-  </div>
+    <div id="videoContainer">
+        <video controls id="videoPlayer">
+            <!-- The video URL will be dynamically set through JavaScript -->
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        const videoPlayer = document.getElementById('videoPlayer');
+        const videoContainer = document.getElementById('videoContainer');
+
+        function showVideo(videoUrl) {
+            videoPlayer.src = videoUrl;
+            videoContainer.style.display = 'block';
+        }
+    </script>
 </body>
 </html>
